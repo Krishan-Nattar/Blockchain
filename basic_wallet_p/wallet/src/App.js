@@ -21,23 +21,18 @@ function App() {
       let list = []
       chain.forEach(object=>{
         object.transactions.forEach(item=>{
-          // console.log(item.sender)
           let sender = item.sender.toString();
-          // console.log(sender)
           let rec = item.recipient.toString()
           if(sender.toLowerCase() === name){
             total -= item.amount
-            // console.log(name)
-            // console.log("HERE")
             list.push(item)
           } else if(rec.toLowerCase() === name){
-            // setBalance(balance + item.amount)
             total += item.amount
             list.push(item)
           }
         })
       })
-      console.log(list);
+
       setBalance(total)
       setTrans(list);
     })
